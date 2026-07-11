@@ -188,9 +188,10 @@ h3 {
 
 .cta--secondary {
   width: 100%;
-  color: var(--white);
-  background: var(--blue);
-  box-shadow: 0 12px 28px rgba(26, 115, 232, 0.26);
+  color: var(--black);
+  background: var(--white);
+  outline: 2px solid var(--black);
+  box-shadow: 0 12px 28px rgba(255, 255, 255, 0.14);
 }
 
 .cta--ghost {
@@ -206,8 +207,44 @@ h3 {
   box-shadow: 0 16px 34px rgba(0, 0, 0, 0.22);
 }
 
+.cta--light {
+  color: var(--black);
+  background: var(--white);
+  box-shadow: none;
+  outline: 2px solid var(--black);
+}
+
 .cta--wide {
   width: 100%;
+}
+
+.paystack-note {
+  display: grid;
+  gap: 7px;
+  margin-top: 14px;
+  color: #dfe9e2;
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.paystack-note p {
+  margin: 0;
+  color: inherit;
+  font-weight: 800;
+}
+
+.paystack-note a,
+.till-link {
+  color: var(--green);
+  font-size: 0.86rem;
+  font-weight: 900;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.paystack-note--hero {
+  max-width: 680px;
+  margin-top: 18px;
 }
 
 .trust-row {
@@ -472,6 +509,11 @@ h3 {
   margin-bottom: 16px;
 }
 
+.payment-actions {
+  display: grid;
+  gap: 12px;
+}
+
 .till-box {
   display: grid;
   gap: 5px;
@@ -528,6 +570,24 @@ h3 {
 .final-cta h2 {
   max-width: 760px;
   margin-bottom: 0;
+  color: var(--black);
+}
+
+.final-payment {
+  display: grid;
+  gap: 12px;
+  width: min(100%, 380px);
+}
+
+.final-payment p {
+  margin: 0;
+  color: #122016;
+  font-size: 0.88rem;
+  font-weight: 850;
+  line-height: 1.45;
+}
+
+.final-payment .till-link {
   color: var(--black);
 }
 

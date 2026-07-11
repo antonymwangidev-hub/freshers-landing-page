@@ -10,10 +10,13 @@
     />
     <link rel="preconnect" href="https://images.unsplash.com" />
     <link rel="preconnect" href="https://images.pexels.com" />
-    <link rel="preconnect" href="https://js.paystack.co" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
-    <script defer src="https://js.paystack.co/v1/inline.js"></script>
-    <script defer src="script.js"></script>
   </head>
   <body>
     <main>
@@ -38,12 +41,16 @@
             without experience, using only your phone.
           </p>
           <div class="hero__actions">
-            <button class="cta cta--primary" data-paystack="2499">
-              Join Freshers Bundle - KSh 2,499
-            </button>
-            <a class="cta cta--ghost" href="https://wa.me/254746370937">
-              WhatsApp Questions
+            <a class="cta cta--primary" href="[PLACEHOLDER: PAYSTACK_LINK_2499]">
+              Pay With M-Pesa Now - KSh 2,499
             </a>
+            <a class="cta cta--ghost" href="[PLACEHOLDER: PAYSTACK_LINK_999]">
+              Start With KSh 999
+            </a>
+          </div>
+          <div class="paystack-note paystack-note--hero">
+            <p>Pay Securely with Paystack. M-Pesa, Card, Airtel Money Accepted. STK Push in 3 seconds.</p>
+            <a href="https://wa.me/254746370937?text=Hi%20Nexus%20AI%20Academy%2C%20I%20paid%20to%20Till%20123456.%20Here%20is%20my%20screenshot.">Prefer M-Pesa Till? Pay to 123456 then WhatsApp screenshot</a>
           </div>
           <div class="trust-row" aria-label="Trust signals">
             <span>50 Slots Only</span>
@@ -180,18 +187,27 @@
             <div class="payment-box">
               <h3>Lipa Mdogo Mdogo</h3>
               <p>Pay KSh 999 to start today. Balance KSh 1,500 in 2 weeks.</p>
-              <button class="cta cta--secondary" data-paystack="999">
+              <a class="cta cta--secondary" href="[PLACEHOLDER: PAYSTACK_LINK_999]">
                 Start With KSh 999
-              </button>
+              </a>
             </div>
             <div class="till-box">
               <span>M-Pesa Till</span>
-              <strong>78653</strong>
+              <strong>123456</strong>
               <span>NEXUS AI ACADEMY</span>
             </div>
-            <button class="cta cta--primary cta--wide" data-paystack="2499">
-              Pay Now
-            </button>
+            <div class="payment-actions">
+              <a class="cta cta--primary cta--wide" href="[PLACEHOLDER: PAYSTACK_LINK_2499]">
+                Pay With M-Pesa Now - KSh 2,499
+              </a>
+              <a class="cta cta--secondary cta--wide" href="[PLACEHOLDER: PAYSTACK_LINK_999]">
+                Start With KSh 999
+              </a>
+            </div>
+            <div class="paystack-note">
+              <p>Pay Securely with Paystack. M-Pesa, Card, Airtel Money Accepted. STK Push in 3 seconds.</p>
+              <a href="https://wa.me/254746370937?text=Hi%20Nexus%20AI%20Academy%2C%20I%20paid%20to%20Till%20123456.%20Here%20is%20my%20screenshot.">Prefer M-Pesa Till? Pay to 123456 then WhatsApp screenshot</a>
+            </div>
             <p class="urgency">Only 6 slots left for Sept</p>
           </div>
         </div>
@@ -221,7 +237,16 @@
       <section class="final-cta">
         <div class="container final-cta__inner">
           <h2>Don't Start Campus Broke. Start With A Skill.</h2>
-          <button class="cta cta--dark" data-paystack="2499">Enroll Now</button>
+          <div class="final-payment">
+            <a class="cta cta--dark" href="[PLACEHOLDER: PAYSTACK_LINK_2499]">
+              Pay With M-Pesa Now - KSh 2,499
+            </a>
+            <a class="cta cta--light" href="[PLACEHOLDER: PAYSTACK_LINK_999]">
+              Start With KSh 999
+            </a>
+            <p>Pay Securely with Paystack. M-Pesa, Card, Airtel Money Accepted. STK Push in 3 seconds.</p>
+            <a class="till-link" href="https://wa.me/254746370937?text=Hi%20Nexus%20AI%20Academy%2C%20I%20paid%20to%20Till%20123456.%20Here%20is%20my%20screenshot.">Prefer M-Pesa Till? Pay to 123456 then WhatsApp screenshot</a>
+          </div>
         </div>
       </section>
     </main>
