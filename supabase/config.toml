@@ -1,0 +1,11 @@
+# Supabase local development config
+# See https://supabase.com/docs/guides/cli/config
+
+[functions.initialize-payment]
+verify_jwt = false
+
+[functions.verify-payment]
+verify_jwt = false
+
+[functions.paystack-webhook]
+verify_jwt = false

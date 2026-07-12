@@ -1,0 +1,9 @@
+{
+  "name": "freshers-landing-page",
+  "private": true,
+  "scripts": {
+    "setup": "node scripts/setup.js",
+    "provision": "node scripts/provision.js",
+    "test:payments": "node scripts/setup.js --test"
+  }
+}

@@ -238,6 +238,23 @@ h1 {
   font-weight: 700;
 }
 
+.payment-details--pending {
+  border-color: rgba(0, 255, 136, 0.35);
+}
+
+.payment-details--error {
+  border-color: rgba(255, 77, 77, 0.35);
+  background: #fff5f5;
+}
+
+.payment-details a,
+.footer a {
+  color: var(--green-dark);
+  font-weight: 800;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
 .next-steps ul {
   display: grid;
   gap: 14px;

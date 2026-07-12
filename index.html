@@ -41,12 +41,12 @@
             without experience, using only your phone.
           </p>
           <div class="hero__actions">
-            <a class="cta cta--primary" href="[PLACEHOLDER: PAYSTACK_LINK_2499]">
+            <button type="button" class="cta cta--primary" data-pay-amount="2499">
               Pay With M-Pesa Now - KSh 2,499
-            </a>
-            <a class="cta cta--ghost" href="[PLACEHOLDER: PAYSTACK_LINK_999]">
+            </button>
+            <button type="button" class="cta cta--ghost" data-pay-amount="999">
               Start With KSh 999
-            </a>
+            </button>
           </div>
           <div class="paystack-note paystack-note--hero">
             <p>Pay Securely with Paystack. M-Pesa, Card, Airtel Money Accepted. STK Push in 3 seconds.</p>
@@ -187,9 +187,9 @@
             <div class="payment-box">
               <h3>Lipa Mdogo Mdogo</h3>
               <p>Pay KSh 999 to start today. Balance KSh 1,500 in 2 weeks.</p>
-              <a class="cta cta--secondary" href="[PLACEHOLDER: PAYSTACK_LINK_999]">
+              <button type="button" class="cta cta--secondary" data-pay-amount="999">
                 Start With KSh 999
-              </a>
+              </button>
             </div>
             <div class="till-box">
               <span>M-Pesa Till</span>
@@ -197,12 +197,12 @@
               <span>NEXUS AI ACADEMY</span>
             </div>
             <div class="payment-actions">
-              <a class="cta cta--primary cta--wide" href="[PLACEHOLDER: PAYSTACK_LINK_2499]">
+              <button type="button" class="cta cta--primary cta--wide" data-pay-amount="2499">
                 Pay With M-Pesa Now - KSh 2,499
-              </a>
-              <a class="cta cta--secondary cta--wide" href="[PLACEHOLDER: PAYSTACK_LINK_999]">
+              </button>
+              <button type="button" class="cta cta--secondary cta--wide" data-pay-amount="999">
                 Start With KSh 999
-              </a>
+              </button>
             </div>
             <div class="paystack-note">
               <p>Pay Securely with Paystack. M-Pesa, Card, Airtel Money Accepted. STK Push in 3 seconds.</p>
@@ -238,12 +238,12 @@
         <div class="container final-cta__inner">
           <h2>Don't Start Campus Broke. Start With A Skill.</h2>
           <div class="final-payment">
-            <a class="cta cta--dark" href="[PLACEHOLDER: PAYSTACK_LINK_2499]">
+            <button type="button" class="cta cta--dark" data-pay-amount="2499">
               Pay With M-Pesa Now - KSh 2,499
-            </a>
-            <a class="cta cta--light" href="[PLACEHOLDER: PAYSTACK_LINK_999]">
+            </button>
+            <button type="button" class="cta cta--light" data-pay-amount="999">
               Start With KSh 999
-            </a>
+            </button>
             <p>Pay Securely with Paystack. M-Pesa, Card, Airtel Money Accepted. STK Push in 3 seconds.</p>
             <a class="till-link" href="https://wa.me/254746370937?text=Hi%20Nexus%20AI%20Academy%2C%20I%20paid%20to%20Till%20123456.%20Here%20is%20my%20screenshot.">Prefer M-Pesa Till? Pay to 123456 then WhatsApp screenshot</a>
           </div>
@@ -258,5 +258,49 @@
         <span>Nairobi, KE</span>
       </div>
     </footer>
+
+    <div class="payment-modal" id="payment-modal" hidden aria-hidden="true">
+      <div class="payment-modal__backdrop" data-close-modal></div>
+      <div
+        class="payment-modal__dialog"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="payment-modal-title"
+      >
+        <button type="button" class="payment-modal__close" data-close-modal aria-label="Close">
+          &times;
+        </button>
+        <p class="eyebrow eyebrow--green">Secure checkout</p>
+        <h2 id="payment-modal-title">Complete Your Enrollment</h2>
+        <p class="payment-modal__summary" id="payment-modal-summary">
+          Pay KSh 2,499 in full for instant access.
+        </p>
+        <form id="payment-form" class="payment-form" novalidate>
+          <input type="hidden" name="amount" id="payment-amount" value="2499" />
+          <label class="payment-form__field">
+            <span>Full Name</span>
+            <input type="text" name="name" autocomplete="name" required placeholder="e.g. Mercy A." />
+          </label>
+          <label class="payment-form__field">
+            <span>Email Address</span>
+            <input type="email" name="email" autocomplete="email" required placeholder="you@email.com" />
+          </label>
+          <label class="payment-form__field">
+            <span>Phone Number</span>
+            <input type="tel" name="phone" autocomplete="tel" required placeholder="07XX XXX XXX" />
+          </label>
+          <p class="payment-form__error" id="payment-form-error" hidden></p>
+          <button type="submit" class="cta cta--primary cta--wide" id="payment-submit">
+            Continue to Paystack
+          </button>
+        </form>
+        <p class="payment-modal__note">
+          You will be redirected to Paystack to pay with M-Pesa, card, or Airtel Money.
+        </p>
+      </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

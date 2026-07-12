@@ -20,9 +20,11 @@
     <main>
       <section class="hero-confirmation">
         <div class="container hero-confirmation__inner">
-          <div class="success-icon" aria-hidden="true">✓</div>
-          <h1>Payment Successful! Welcome To Nexus</h1>
-          <p>Your access to the Freshers Money Move Bundle is ready</p>
+          <div class="success-icon" id="status-icon" aria-hidden="true">✓</div>
+          <h1 id="payment-status-title">Confirming Your Payment...</h1>
+          <p id="payment-status-message">
+            Please wait while we verify your Paystack transaction.
+          </p>
           <div class="trust-bar" aria-label="Access benefits">
             <span>Instant Access</span>
             <span>Job Group Included</span>
@@ -31,14 +33,14 @@
         </div>
       </section>
 
-      <section class="onboarding section">
+      <section class="onboarding section" id="success-content" hidden>
         <div class="container">
           <div class="step-grid">
             <article class="step-card">
               <span class="step-number">01</span>
               <h2>Step 1: Join The Job Group</h2>
               <p>This is where we post paid jobs + Templates weekly</p>
-              <a class="button button--green" href="[PLACEHOLDER: WHATSAPP_GROUP_LINK]">
+              <a class="button button--green" href="https://chat.whatsapp.com/GdHfJutCYlX7xitn3gC71o">
                 Join WhatsApp Group
               </a>
             </article>
@@ -56,7 +58,7 @@
               <span class="step-number">03</span>
               <h2>Step 3: Book Your 1-On-1 Audit</h2>
               <p>Send me a WhatsApp to get your WhatsApp/Client strategy audited</p>
-              <a class="button button--black" href="https://wa.me/2547XX XXX?text=AUDIT">
+              <a class="button button--black" href="https://wa.me/254746370937?text=AUDIT">
                 WhatsApp Me: Audit
               </a>
             </article>
@@ -64,25 +66,51 @@
         </div>
       </section>
 
-      <section class="section section--tight">
+      <section class="section section--tight" id="pending-content">
         <div class="container">
-          <article class="payment-details">
-            <h2>Payment Details</h2>
-            <p><strong>Amount Paid:</strong> KSh 2,499</p>
-            <p><strong>Payment Method:</strong> Paystack</p>
-            <p><strong>Receipt sent to:</strong> [USER_EMAIL_PLACEHOLDER]</p>
-            <small>Need help? WhatsApp 07XX XXX</small>
+          <article class="payment-details payment-details--pending">
+            <h2>Verifying Payment</h2>
+            <p><strong>Reference:</strong> <span id="payment-reference">—</span></p>
+            <p>This usually takes a few seconds. Do not close this page.</p>
           </article>
         </div>
       </section>
 
-      <section class="next-steps section--tight">
+      <section class="section section--tight" id="error-content" hidden>
+        <div class="container">
+          <article class="payment-details payment-details--error">
+            <h2>Need Help?</h2>
+            <p>
+              If money was deducted from your account, WhatsApp us with your Paystack
+              receipt and we will confirm manually.
+            </p>
+            <a class="button button--green" id="support-link" href="https://wa.me/254746370937">
+              Contact Support
+            </a>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section--tight" id="payment-details-section" hidden>
+        <div class="container">
+          <article class="payment-details">
+            <h2>Payment Details</h2>
+            <p><strong>Amount Paid:</strong> <span id="payment-amount">—</span></p>
+            <p id="payment-balance-row"><strong>Balance Due:</strong> <span id="payment-balance">—</span></p>
+            <p><strong>Payment Method:</strong> Paystack</p>
+            <p><strong>Receipt sent to:</strong> <span id="payment-email">—</span></p>
+            <small>Need help? WhatsApp <a href="https://wa.me/254746370937">0746 370 937</a></small>
+          </article>
+        </div>
+      </section>
+
+      <section class="next-steps section--tight" id="next-steps-section" hidden>
         <div class="container">
           <h2>What Happens Next</h2>
           <ul>
             <li>✓ You will get a welcome WhatsApp in 5 minutes</li>
             <li>✓ Check your email for login details</li>
-            <li>✓ Our first live class is [DATE]. Calendar invite sent</li>
+            <li>✓ Our first live class calendar invite will be sent to your email</li>
           </ul>
         </div>
       </section>
@@ -90,9 +118,12 @@
 
     <footer class="footer">
       <div class="container">
-        <p>Questions? WhatsApp 07XX XXX | Nexus AI Academy © 2026</p>
+        <p>Questions? WhatsApp <a href="https://wa.me/254746370937">0746 370 937</a> | Nexus AI Academy © 2026</p>
         <small>7-Day Money Back Guarantee</small>
       </div>
     </footer>
+
+    <script src="config.js"></script>
+    <script src="thank-you.js"></script>
   </body>
 </html>
