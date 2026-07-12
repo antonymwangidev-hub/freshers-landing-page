@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin | Freshers Bundle</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <div class="admin">
+      <section class="login-panel" id="login-panel">
+        <div class="login-card">
+          <p class="eyebrow">Nexus AI Academy</p>
+          <h1>Admin Login</h1>
+          <form id="login-form">
+            <label>
+              <span>Email</span>
+              <input type="email" name="email" required autocomplete="username" />
+            </label>
+            <label>
+              <span>Password</span>
+              <input type="password" name="password" required autocomplete="current-password" />
+            </label>
+            <p class="form-error" id="login-error" hidden></p>
+            <button type="submit" class="btn btn--primary">Sign In</button>
+          </form>
+        </div>
+      </section>
+
+      <section class="dashboard" id="dashboard" hidden>
+        <header class="dashboard__header">
+          <div>
+            <p class="eyebrow">Freshers Bundle</p>
+            <h1>Payments Admin</h1>
+          </div>
+          <div class="dashboard__actions">
+            <button type="button" class="btn btn--ghost" id="refresh-btn">Refresh</button>
+            <button type="button" class="btn btn--dark" id="logout-btn">Log Out</button>
+          </div>
+        </header>
+
+        <div class="stats" id="stats">
+          <article class="stat-card">
+            <span>Total Records</span>
+            <strong id="stat-total">0</strong>
+          </article>
+          <article class="stat-card stat-card--green">
+            <span>Paid (Success)</span>
+            <strong id="stat-success">0</strong>
+          </article>
+          <article class="stat-card stat-card--amber">
+            <span>Pending</span>
+            <strong id="stat-pending">0</strong>
+          </article>
+          <article class="stat-card stat-card--dark">
+            <span>Outstanding Balance</span>
+            <strong id="stat-balance">KSh 0</strong>
+          </article>
+        </div>
+
+        <div class="toolbar">
+          <label class="filter">
+            <span>Filter</span>
+            <select id="status-filter">
+              <option value="all">All statuses</option>
+              <option value="success">Success</option>
+              <option value="pending">Pending</option>
+              <option value="failed">Failed</option>
+            </select>
+          </label>
+        </div>
+
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr>
+                <th>Student</th>
+                <th>Contact</th>
+                <th>Amount</th>
+                <th>Balance</th>
+                <th>Type</th>
+                <th>Status</th>
+                <th>Reference</th>
+                <th>Date</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody id="payments-body">
+              <tr>
+                <td colspan="9" class="empty">Loading payments...</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </div>
+
+    <dialog class="edit-modal" id="edit-modal">
+      <form id="edit-form" method="dialog">
+        <header>
+          <h2>Edit Payment</h2>
+          <button type="button" class="icon-btn" id="close-modal" aria-label="Close">&times;</button>
+        </header>
+        <input type="hidden" name="id" id="edit-id" />
+        <div class="edit-grid">
+          <label>
+            <span>Student Name</span>
+            <input type="text" name="student_name" id="edit-name" required />
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" id="edit-email" required />
+          </label>
+          <label>
+            <span>Phone</span>
+            <input type="tel" name="phone" id="edit-phone" required />
+          </label>
+          <label>
+            <span>Amount Paid (KSh)</span>
+            <select name="amount_paid" id="edit-amount">
+              <option value="999">999</option>
+              <option value="2499">2499</option>
+            </select>
+          </label>
+          <label>
+            <span>Balance (KSh)</span>
+            <select name="balance" id="edit-balance">
+              <option value="0">0</option>
+              <option value="1500">1500</option>
+            </select>
+          </label>
+          <label>
+            <span>Payment Type</span>
+            <select name="payment_type" id="edit-type">
+              <option value="deposit">deposit</option>
+              <option value="full">full</option>
+            </select>
+          </label>
+          <label>
+            <span>Status</span>
+            <select name="status" id="edit-status">
+              <option value="pending">pending</option>
+              <option value="success">success</option>
+              <option value="failed">failed</option>
+            </select>
+          </label>
+        </div>
+        <p class="form-error" id="edit-error" hidden></p>
+        <footer>
+          <button type="button" class="btn btn--ghost" id="cancel-edit">Cancel</button>
+          <button type="submit" class="btn btn--primary">Save Changes</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <script src="config.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="admin.js"></script>
+  </body>
+</html>
