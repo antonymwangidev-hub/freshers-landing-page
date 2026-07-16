@@ -41,6 +41,11 @@
           </div>
           <div class="dashboard__actions">
             <button type="button" class="btn btn--ghost" id="refresh-btn">Refresh</button>
+            <div style="display:flex;gap:8px;align-items:center;">
+              <button type="button" class="btn btn--ghost nav-btn active" data-section="payments">Payments</button>
+              <button type="button" class="btn btn--ghost nav-btn" data-section="students">Students</button>
+              <button type="button" class="btn btn--ghost nav-btn" data-section="settings">Settings</button>
+            </div>
             <button type="button" class="btn btn--dark" id="logout-btn">Log Out</button>
           </div>
         </header>
@@ -76,28 +81,81 @@
           </label>
         </div>
 
-        <div class="table-wrap">
-          <table>
-            <thead>
-              <tr>
-                <th>Student</th>
-                <th>Contact</th>
-                <th>Amount</th>
-                <th>Balance</th>
-                <th>Type</th>
-                <th>Status</th>
-                <th>Reference</th>
-                <th>Date</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody id="payments-body">
-              <tr>
-                <td colspan="9" class="empty">Loading payments...</td>
-              </tr>
-            </tbody>
-          </table>
+        <!-- Payments section (default) -->
+        <div id="payments-section">
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Student</th>
+                  <th>Contact</th>
+                  <th>Amount</th>
+                  <th>Balance</th>
+                  <th>Type</th>
+                  <th>Status</th>
+                  <th>Reference</th>
+                  <th>Date</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="payments-body">
+                <tr>
+                  <td colspan="9" class="empty">Loading payments...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
         </div>
+
+        <!-- Students section -->
+        <div id="students-section" hidden>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;">
+            <h2 style="margin:0">Students</h2>
+            <div style="display:flex;gap:8px;">
+              <button class="btn btn--primary" id="add-student-btn">Add Student</button>
+              <button class="btn btn--ghost" id="refresh-students-btn">Refresh</button>
+            </div>
+          </div>
+
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>Student</th>
+                  <th>Contact</th>
+                  <th>Registered</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="students-body">
+                <tr>
+                  <td colspan="4" class="empty">Loading students...</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Settings section -->
+        <div id="settings-section" hidden>
+          <h2>Platform Settings</h2>
+          <form id="settings-form" style="max-width:420px;margin-top:12px;">
+            <label>
+              <span>Deposit Price (KSh)</span>
+              <input type="number" id="setting-deposit" required min="0" />
+            </label>
+            <label>
+              <span>Full Price (KSh)</span>
+              <input type="number" id="setting-full" required min="0" />
+            </label>
+            <p class="form-error" id="settings-error" hidden></p>
+            <div style="margin-top:12px;display:flex;gap:8px;">
+              <button type="submit" class="btn btn--primary">Save Settings</button>
+              <button type="button" class="btn btn--ghost" id="reset-settings">Reset</button>
+            </div>
+          </form>
+        </div>
+
       </section>
     </div>
 
@@ -155,6 +213,35 @@
         <footer>
           <button type="button" class="btn btn--ghost" id="cancel-edit">Cancel</button>
           <button type="submit" class="btn btn--primary">Save Changes</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <dialog class="edit-modal" id="student-modal">
+      <form id="student-form" method="dialog">
+        <header>
+          <h2 id="student-modal-title">Add Student</h2>
+          <button type="button" class="icon-btn" id="close-student-modal" aria-label="Close">&times;</button>
+        </header>
+        <input type="hidden" name="id" id="student-id" />
+        <div class="edit-grid">
+          <label>
+            <span>Full Name</span>
+            <input type="text" name="full_name" id="student-name" required />
+          </label>
+          <label>
+            <span>Email</span>
+            <input type="email" name="email" id="student-email" />
+          </label>
+          <label>
+            <span>Phone</span>
+            <input type="tel" name="phone" id="student-phone" />
+          </label>
+        </div>
+        <p class="form-error" id="student-error" hidden></p>
+        <footer>
+          <button type="button" class="btn btn--ghost" id="cancel-student">Cancel</button>
+          <button type="submit" class="btn btn--primary">Save Student</button>
         </footer>
       </form>
     </dialog>
